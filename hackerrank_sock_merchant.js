@@ -37,6 +37,26 @@ Sample Output
 */
 
 function sockMerchant(n, ar) {
-
-
+  let obj = {};
+  let array = [];
+  let pairs = 0;
+  if(ar.length === 0) {
+    return pairs;
+  }
+  for(let i = 0; i < ar.length; i++) {
+    if(obj[ar[i]] === undefined) {
+      obj[ar[i]] = 1;
+      array.push(ar[i]);
+    } else {
+      obj[ar[i]]++;
+    }
+  }
+  for(let i = 0; i < array.length; i++) {
+    if(obj[array[i]] % 2 === 0) {
+      pairs += obj[array[i]] / 2;
+    } else {
+      pairs += Math.floor(obj[array[i]] / 2);
+    }
+  }
+  return pairs;
 }
